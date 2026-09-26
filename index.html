@@ -4,31 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>WebAR — модель ботинка</title>
+
     <script
       type="module"
-      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"
     ></script>
 
     <style>
-      model-viewer {
-        width: 100vw;
-        height: 100vh;
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #eee;
       }
 
-      .ar-button {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
+      model-viewer {
+        width: 100vw;
+        height: 85vh;
+      }
+
+      button {
+        display: block;
+        margin: 15px auto;
         padding: 14px 24px;
+
+        border: 1px solid black;
+        border-radius: 10px;
+
+        background: white;
+        color: black;
+
+        font-size: 16px;
+        cursor: pointer;
       }
     </style>
   </head>
 
   <body>
     <model-viewer
+      id="viewer"
       src="Boot6.glb"
       ios-src="Boot.usdz"
+      alt="3D-модель ботинка"
       ar
       ar-modes="webxr scene-viewer quick-look"
       camera-controls
@@ -36,7 +53,10 @@
       environment-image="studio_small_03_1k.hdr"
       shadow-intensity="1"
     >
-      <button class="ar-button" slot="ar-button">Открыть в AR</button>
     </model-viewer>
+
+    <button onclick="document.getElementById('viewer').activateAR()">
+      Открыть в AR
+    </button>
   </body>
 </html>
