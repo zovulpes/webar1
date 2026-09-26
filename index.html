@@ -55,7 +55,15 @@
       environment-image="studio_small_03_1k.hdr"
       shadow-intensity="1"
     >
-      <button class="ar-button" slot="ar-button">Открыть в AR</button>
+      <button
+        class="ar-button"
+        slot="ar-button"
+        style="position: fixed; z-index: 99999; bottom: 20px; left: 20px"
+      >
+        Открыть в AR
+      </button>
     </model-viewer>
+
+    <a rel="ar" href="Boot.usdz"> Открыть USDZ в AR </a>
   </body>
 </html>
