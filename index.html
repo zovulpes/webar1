@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>WebAR — model-viewer</title>
+
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #eeeeee;
+      }
+
+      model-viewer {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .ar-button {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 14px 24px;
+
+        border: none;
+        border-radius: 10px;
+
+        font-size: 16px;
+        cursor: pointer;
+
+        background: white;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <model-viewer
+      src="Astronaut.glb"
+      ios-src="Astronaut.usdz"
+      alt="3D-модель астронавта"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      auto-rotate
+      environment-image="studio_small_03_1k.hdr"
+      shadow-intensity="1"
+    >
+      <button class="ar-button" slot="ar-button">Открыть в AR</button>
+    </model-viewer>
+  </body>
+</html>
